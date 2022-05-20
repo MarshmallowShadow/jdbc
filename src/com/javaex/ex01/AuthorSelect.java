@@ -39,7 +39,7 @@ public static void main(String[] args) {
 				
 				System.out.println(authorId + ", " + authorName + ", " + authorDesc);
 			}
-						
+			
 		} catch (ClassNotFoundException e) {
 			System.out.println("error: 드라이버 로딩 실패 - " + e);
 		} catch (SQLException e) {
