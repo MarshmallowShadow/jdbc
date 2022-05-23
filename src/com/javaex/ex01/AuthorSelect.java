@@ -21,9 +21,9 @@ public static void main(String[] args) {
 			//준비
 			String query = "";
 			query += " select	author_id,";
-			query += " 			author_name,";
-			query += " 			author_desc desc";
-			query += " from author";
+			query += " 			author_name name,";
+			query += " 			author_desc";
+			query += " from		author";
 			
 			//바인딩
 			pstmt = conn.prepareStatement(query);
@@ -34,8 +34,8 @@ public static void main(String[] args) {
 		// 4.결과처리
 			while(rs.next()) {
 				int authorId = rs.getInt(1); //컬럼 시작 자리는 항상 1 (author_id)
-				String authorName = rs.getString("author_name"); //can also use column name instead of position
-				String authorDesc = rs.getString("desc"); //must use named column if named
+				String authorDesc = rs.getString("author_desc"); //can also use column name instead of position
+				String authorName = rs.getString("name"); //must use named column if named
 				
 				System.out.println(authorId + ", " + authorName + ", " + authorDesc);
 			}

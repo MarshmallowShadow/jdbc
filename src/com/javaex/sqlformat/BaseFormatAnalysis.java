@@ -33,7 +33,7 @@ public class BaseFormatAnalysis {
 			//바인딩
 			pstmt = conn.prepareStatement(query); //쿼리를 문자열로 만들기;
 			pstmt.setString(1, "기안84"); // ? #1 (순서 중요)
-			pstmt.setString(2, "기안동에서 산 84년생"); // ? #2
+			pstmt.setString(2, "기안동에서 산 84년생"); // ? #2 (순서 중요)
 			
 			//실행 (자동 commit 주의)
 			//query문 실행 (insert, update, delete)
