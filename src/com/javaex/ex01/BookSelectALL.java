@@ -23,14 +23,15 @@ public class BookSelectALL {
 			query += "select book_id,";
 			query += "		 title,";
 			query += "		 pubs,";
-			query += "		 pub_date,";
+			query += "		 to_char(pub_date, ?),";
 			query += "		 a.author_id,";
 			query += "		 author_name,";
 			query += "		 author_desc";
-			query += " from book b, author a";
-			query += " where b.author_id = a.author_id";
+			query += " from book b left outer join author a";
+			query += " on b.author_id = a.author_id";
 			
 			pstmt = conn.prepareStatement(query);
+			pstmt.setString(1, "YY/MM/DD");
 			
 			rs = pstmt.executeQuery();
 			

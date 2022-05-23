@@ -1,4 +1,5 @@
 package com.javaex.ex02;
+import java.util.*;
 
 public class AuthorApp {
 	public static void main(String[] args) {
@@ -13,6 +14,29 @@ public class AuthorApp {
 		authorDao.authorInsert("김영하","알쓸신잡");
 		*/
 		
-		authorDao.authorSelect();
+		//authorDao.authorUpdate("이문열", "서울특별시", 1);
+		
+		//authorDao.authorDelete(3);
+		
+		List<AuthorVo> authorList =  authorDao.authorSelect();
+		
+		for(int i = 0; i<authorList.size(); i++) {
+			
+			/*
+			int authorId = authorList.get(i).getAuthorId();
+			String authorName = authorList.get(i).getAuthorName();
+			String authorDesc = authorList.get(i).getAuthorDesc();
+			
+			System.out.println(authorId + ", " + authorName + ", " + authorDesc);
+			*/
+			
+			/*
+			AuthorVo authorVo = authorList.get(i);
+			System.out.println(authorVo.getAuthorId() + ", " + authorVo.getAuthorName() + ", " + authorVo.getAuthorDesc());
+			*/
+			
+			System.out.println(authorList.get(i).getAuthorId() + ", " + authorList.get(i).getAuthorName() + ", " + authorList.get(i).getAuthorDesc());
+			
+		}
 	}
 }

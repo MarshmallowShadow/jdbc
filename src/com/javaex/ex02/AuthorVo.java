@@ -5,7 +5,9 @@ public class AuthorVo {
 	private String authorName;
 	private String authorDesc;
 	
-	public AuthorVo() { }
+	public AuthorVo() {
+		super();
+	}
 	public AuthorVo(int authorId, String authorName, String authorDesc) {
 		this.authorId = authorId;
 		this.authorName = authorName;
@@ -33,6 +35,6 @@ public class AuthorVo {
 	
 	@Override
 	public String toString() {
-		return "AuthorVo [authorId=" + authorId + ", authorName=" + authorName + ", authorDesc=" + authorDesc + "]";
+		return "AuthorVo[authorId=" + authorId + ", authorName=" + authorName + ", authorDesc=" + authorDesc + "]";
 	}
 }
