@@ -77,8 +77,8 @@ public class AuthorDao {
 			//준비
 			String query = "";
 			query += " update author";
-			query += " set author_name = ?";
-			query += " set author_desc = ?";
+			query += " set author_name = ?,";
+			query += " 	   author_desc = ?";
 			query += " where author_id = ?";
 			
 			//바인딩

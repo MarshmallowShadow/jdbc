@@ -17,7 +17,7 @@ public class BookDao {
 			conn = DriverManager.getConnection(url, "webdb", "webdb");
 			
 			String query = "";
-			query += " insert from book";
+			query += " insert into book";
 			query += " values(seq_book.nextval, ?, ?, ?, ?)";
 			
 			pstmt = conn.prepareStatement(query);
@@ -66,8 +66,8 @@ public class BookDao {
 			String query = "";
 			query += " update	book";
 			query += " set title = ?,";
-			query += " 	   pubs = ?";
-			query += "     pub_date = ?";
+			query += " 	   pubs = ?,";
+			query += "     pub_date = ?,";
 			query += "     author_id = ?";
 			query += " where	book_id = ?";
 			
@@ -112,7 +112,7 @@ public class BookDao {
 		try {
 			Class.forName("oracle.jdbc.driver.OracleDriver");
 			
-			String url = "jdbd:oracle:thin:@localhost:1521:xe";
+			String url = "jdbc:oracle:thin:@localhost:1521:xe";
 			conn = DriverManager.getConnection(url, "webdb", "webdb");
 			
 			String query = "";
@@ -166,8 +166,9 @@ public class BookDao {
 			query += " 			title,";
 			query += " 			pubs,";
 			query += " 			to_char(pub_date, ?),";
-			query += " 			author_id";
-			query += " from book";
+			query += " 			author_name";
+			query += " from book b left outer join author a";
+			query += " on b.author_id = a.author_id";
 			
 			pstmt = conn.prepareStatement(query);
 			pstmt.setString(1, "YY/MM/DD");
@@ -179,9 +180,9 @@ public class BookDao {
 				String title = rs.getString(2);
 				String pubs = rs.getString(3);
 				String pubDate = rs.getString(4);
-				int authorId = rs.getInt(5);
+				String authorName = rs.getString(5);
 				
-				BookVo bookVo = new BookVo(bookId, title, pubs, pubDate, authorId);
+				BookVo bookVo = new BookVo(bookId, title, pubs, pubDate, authorName);
 				
 				bookList.add(bookVo);
 			}
@@ -231,6 +232,7 @@ public class BookDao {
 			query += " 			author_desc";
 			query += " from book b left outer join author a";
 			query += " on b.author_id = a.author_id";
+			query += " order by book_id";
 			
 			pstmt = conn.prepareStatement(query);
 			pstmt.setString(1, "YY/MM/DD");
@@ -270,4 +272,7 @@ public class BookDao {
 		
 		return fullList;
 	}
+	
+	
+	//public List<>
 }
