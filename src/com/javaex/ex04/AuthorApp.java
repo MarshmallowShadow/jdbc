@@ -22,9 +22,10 @@ public class AuthorApp {
 		authorDao.authorInsert(vo07);
 		
 		AuthorVo updateVo = new AuthorVo(1, "이문열", "서울특별시");
+		authorDao.authorUpdate(updateVo);
 		
 		//authorDao.authorDelete(3);
 		
-		List<AuthorVo> authorList =  authorDao.authorSelect();
+		//List<AuthorVo> authorList =  authorDao.authorSelect();
 	}
 }
