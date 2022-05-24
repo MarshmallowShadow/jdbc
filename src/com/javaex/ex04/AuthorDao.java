@@ -1,4 +1,4 @@
-package com.javaex.ex02;
+package com.javaex.ex04;
 
 import java.sql.*;
 import java.util.*;
