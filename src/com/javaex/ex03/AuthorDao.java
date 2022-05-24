@@ -19,7 +19,7 @@ public class AuthorDao {
 			
 			String query = "";
 			query += " insert into author";
-			query += " values(author_seq.nextvalue, ?, ?)";
+			query += " values(seq.author_id.nextvalue, ?, ?)";
 			
 			pstmt = conn.prepareStatement(query);
 			pstmt.setString(1, authorName);

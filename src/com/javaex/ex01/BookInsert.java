@@ -21,7 +21,7 @@ public class BookInsert {
 			//준비
 			String query = "";
 			query += " insert into book";
-			query += " values(seq_book.nextval, ?, ?, ?, ?)";
+			query += " values(seq_book_id.nextval, ?, ?, ?, ?)";
 			
 			//바인딩
 			pstmt = conn.prepareStatement(query);

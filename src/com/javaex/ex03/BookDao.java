@@ -19,7 +19,7 @@ public class BookDao {
 			
 			String query = "";
 			query += " insert into book";
-			query += " values(seq_book.nextvalue, ?, ?, ?, ?)";
+			query += " values(seq_book_id.nextvalue, ?, ?, ?, ?)";
 			
 			pstmt = conn.prepareStatement(query);
 			pstmt.setString(1, title);

@@ -8,10 +8,14 @@ public class AuthorVo {
 	public AuthorVo() {
 		super();
 	}
-	public AuthorVo(int authorId, String authorName, String authorDesc) {
-		this.authorId = authorId;
+	public AuthorVo(String authorName, String authorDesc) {
+		this();
 		this.authorName = authorName;
 		this.authorDesc = authorDesc;
+	}
+	public AuthorVo(int authorId, String authorName, String authorDesc) {
+		this(authorName, authorDesc);
+		this.authorId = authorId;
 	}
 	
 	public int getAuthorId() {

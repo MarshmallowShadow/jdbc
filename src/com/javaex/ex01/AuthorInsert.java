@@ -21,7 +21,7 @@ public class AuthorInsert {
 			//SQL 문 준비
 			String query = "";
 			query += " insert into author";
-			query += " values(seq_auth.nextval, ?, ?)";
+			query += " values(seq_author_id.nextval, ?, ?)";
 			
 			//바인딩
 			pstmt = conn.prepareStatement(query); //쿼리를 문자열로 만들기;
